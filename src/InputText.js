@@ -7,7 +7,7 @@ class InputText extends Component {
   }
 
   handleChange(e) {
-    this.props.handleInputText(e.target.value)
+    this.props.onInputText(e.target.value)
   }
 
   render() {
