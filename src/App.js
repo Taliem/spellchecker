@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InputText from './InputText';
 import SendText from './SendText';
+import EditText from './EditText';
 
 class App extends Component {
   constructor(props) {
@@ -44,6 +45,10 @@ class App extends Component {
           onResponse={this.handleResponse}
           text={this.state.textArea}
           onSentText={this.handleSentText} />
+
+        <EditText
+          json={this.state.jsonResponse}
+          text={this.state.sentText} />
       </div>
     );
   }
