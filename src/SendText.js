@@ -19,7 +19,7 @@ class SendText extends Component {
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           const json = JSON.parse(xhr.responseText);
           this.props.onResponse(json)
-          this.props.onSentText(this.props.text)
+          this.props.onPostedText(this.props.text)
       }
     }
   }

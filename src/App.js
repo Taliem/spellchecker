@@ -9,11 +9,12 @@ class App extends Component {
     this.state = {
       textArea: '',
       jsonResponse: null,
-      sentText: '',
+      postedText: '',
     }
     this.handleInputText = this.handleInputText.bind(this);
     this.handleResponse = this.handleResponse.bind(this);
-    this.handleSentText = this.handleSentText.bind(this);
+    this.handlePostedText = this.handlePostedText.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleInputText(text) {
@@ -28,10 +29,14 @@ class App extends Component {
     })
   }
 
-  handleSentText(text) {
+  handlePostedText(text) {
     this.setState({
-      sentText: text,
+      postedText: text,
     })
+  }
+
+  handleSelect(e) {
+    console.log(e.target.value)
   }
 
   render() {
@@ -44,11 +49,12 @@ class App extends Component {
         <SendText 
           onResponse={this.handleResponse}
           text={this.state.textArea}
-          onSentText={this.handleSentText} />
+          onPostedText={this.handlePostedText} />
 
         <EditText
           json={this.state.jsonResponse}
-          text={this.state.sentText} />
+          text={this.state.postedText}
+          onSelect={this.handleSelect} />
       </div>
     );
   }
