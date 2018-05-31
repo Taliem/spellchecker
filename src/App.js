@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import InputText from './InputText';
 import SendText from './SendText';
 import EditText from './EditText';
+import CopyText from './CopyText';
 
 class App extends Component {
   constructor(props) {
@@ -76,6 +77,9 @@ class App extends Component {
           text={this.state.postedText}
           onSelect={this.handleSelect}
           onParseText={this.handleParseText} />
+
+        <CopyText 
+          textArrToCopy={this.state.textArrToCopy} />
       </div>
     );
   }
