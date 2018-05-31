@@ -3,19 +3,14 @@ import React, { Component } from 'react';
 class EditText extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
     this.parseText = this.parseText.bind(this);
     this.toEditText = this.toEditText.bind(this);
-  }
-
-  handleClick(e) {
-    console.log('click')
   }
 
   parseText(json) {
     const text = this.props.text;
     let strIndex = 0;
-    let srtArr = [];
+    let strArr = [];
 
     json.forEach((e, i) => {
       let map = {};
@@ -30,10 +25,11 @@ class EditText extends Component {
       if ((json.length - 1 === i) && (strIndex !== text.length))
         map['normal-last'] = text.slice(strIndex);
 
-      srtArr.push(map)
+      strArr.push(map)
     })
-    console.log(srtArr)
-    return srtArr;
+    
+    this.props.onParseText(strArr)
+    return strArr;
   }
 
   toEditText(json) {
@@ -45,7 +41,6 @@ class EditText extends Component {
         switch(mapKey) {
           case 'normal-' + i:
             textTags.push(<span key={mapKey}>{e[mapKey]}</span>);
-            console.log(e.mapKey)
             break;
           
           case 'toChange-' + i:
@@ -73,9 +68,28 @@ class EditText extends Component {
     return textTags; 
   }
 
+  // для оптимизации отрисовки
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.text !== this.props.text) {
+      return true;
+    }
+
+    return false;
+  }
+
   render() {
-    const json = this.props.json;
-    const text = json ? this.toEditText(json) : 'Здесь будет текст';
+
+    const text = (
+      () => {
+      const json = this.props.json
+      if (json === null)
+        return ''
+      else if (json.length === 0)
+        return 'Все верно'
+      else
+        return this.toEditText(json)
+    }
+    )()
 
     return(
       <pre>{text}</pre>
