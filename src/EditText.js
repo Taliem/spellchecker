@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './css/EditText.css';
 
 class EditText extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class EditText extends Component {
           
           case 'toChange-' + i:
             textTags.push(
-              <select onChange={this.props.onSelect} key={mapKey} id={mapKey}>
+              <select onChange={this.props.onSelect} key={mapKey} id={mapKey} className='select'>
                 <option key={'sel-' + i + ' ' + json[i].word } defaultValue={json[i].word}>{json[i].word}</option>
                 {
                   json[i].s.map((word) => {
@@ -85,14 +86,14 @@ class EditText extends Component {
       if (json === null)
         return ''
       else if (json.length === 0)
-        return 'Все верно'
+        return ' Все верно!'
       else
         return this.toEditText(json)
     }
     )()
 
     return(
-      <pre>{text}</pre>
+      <pre className='correction__edit'>{text}</pre>
     )
   }
 }

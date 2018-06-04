@@ -1,0 +1,47 @@
+body {
+  box-sizing: border-box;
+  background-color: #DDDDDD;
+  margin: auto 20px;
+  margin-top: auto; margin-bottom: auto;
+  font-family: sans-serif;
+}
+
+@media screen and (min-width: 720px) {
+
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background-color: #FFDC00;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.select {
+  border: none;
+}
+
+.headline {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 26px;
+}
+
+.input__props {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.correction__button {
+  display: block;
+  margin: 0 auto;
+}
+
+.api-link {
+  margin-top: 100px;
+}

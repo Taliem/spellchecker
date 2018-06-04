@@ -36,7 +36,7 @@ class CopyText extends Component {
 
   render() {
     return (
-      <button onClick={this.handleClick}>Скопировать</button>
+      <button className='correction__button button' onClick={this.handleClick}>Скопировать</button>
     );
   }
 

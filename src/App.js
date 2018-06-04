@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+
 import InputText from './InputText';
 import SendText from './SendText';
 import EditText from './EditText';
 import CopyText from './CopyText';
+import './css/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -62,24 +64,35 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <InputText
-          length={this.state.textArea.length} 
-          onInputText={this.handleInputText} />
+      <div className='container'>
+        <h1 className='headline'>проверить свое правописание.</h1>
 
-        <SendText 
-          onResponse={this.handleResponse}
-          text={this.state.textArea}
-          onPostedText={this.handlePostedText} />
+        <div className='input'>
+          <InputText
+            onInputText={this.handleInputText} />
+          
+          <div className='input__props'>
+            <SendText className='input__button button'
+              onResponse={this.handleResponse}
+              text={this.state.textArea}
+              onPostedText={this.handlePostedText} />
 
-        <EditText
-          json={this.state.jsonResponse}
-          text={this.state.postedText}
-          onSelect={this.handleSelect}
-          onParseText={this.handleParseText} />
+            <span className='input__counter'>{this.state.textArea.length}/3000</span>
+          </div>
+        </div>  
 
-        <CopyText 
-          textArrToCopy={this.state.textArrToCopy} />
+        <div className='correction'>
+          <EditText
+            json={this.state.jsonResponse}
+            text={this.state.postedText}
+            onSelect={this.handleSelect}
+            onParseText={this.handleParseText} />
+
+          <CopyText
+            textArrToCopy={this.state.textArrToCopy} />
+        </div>
+
+        <a className="link api-link" href='http://api.yandex.ru/speller/'>Проверка правописания: Яндекс.Спеллер</a>
       </div>
     );
   }

@@ -26,7 +26,7 @@ class SendText extends Component {
 
   render() {
     return(
-      <button onClick={this.handleClick}>Проверить</button>
+      <button className='button' onClick={this.handleClick}>Проверить</button>
     )
   }
 }

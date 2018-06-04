@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './css/InputText.css';
 
 class InputText extends Component {
   constructor(props) {
@@ -12,10 +13,11 @@ class InputText extends Component {
 
   render() {
     return(
-      <div className='InputText'>
-        <textarea maxLength='3000' onChange={this.handleChange}></textarea>
-        <span>{this.props.length}/3000</span>
-      </div>
+        <textarea 
+          className='input__textarea' maxLength='3000'
+          placeholder='Введите текст для проверки' 
+          spellcheck='false'
+          onChange={this.handleChange}></textarea>
     )
   }
 }
