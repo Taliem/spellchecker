@@ -65,7 +65,7 @@ class App extends Component {
   render() {
     return (
       <div className='container'>
-        <h1 className='headline'>проверить свое правописание.</h1>
+        <h1 className='headline'>проверь свое правописание.</h1>
 
         <div className='input'>
           <InputText

@@ -2,7 +2,7 @@
   "name": "spellchecker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "taliemjob.github.io/spellchecker",
+  "homepage": "https://spellchecker.com",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "react": "^16.4.0",
